@@ -324,5 +324,11 @@ content creators you love.</string>
     <string name="one_tip_option">1 <ph name="TIP">%1$s<ex>BAT</ex></ph></string>
     <string name="five_tip_option">5 <ph name="TIP">%1$s<ex>BAT</ex></ph></string>
     <string name="ten_tip_option">10 <ph name="TIP">%1$s<ex>BAT</ex></ph></string>
-
+    <string name="brave_ui_tips_processed_notification">Your monthly tips have been processed!</string>
+    <string name="brave_ui_contribution_tips">Contributions &amp; Tips</string>
+    <string name="brave_ui_brave_ads_launch_msg">Now you can earn by viewing ads.</string>
+    <string name="brave_ui_turn_on_ads">Turn on Ads</string>
+    <string name="brave_ui_brave_ads_launch_title">Brave Ads has arrived!</string>
+    <string name="brave_ui_verified_publisher_notification">Creator %1$s recently verified</string>
+    <string name="brave_ui_pending_contribution_title">Pending Contribution</string>
 </resources>
