@@ -329,6 +329,6 @@ content creators you love.</string>
     <string name="brave_ui_brave_ads_launch_msg">Now you can earn by viewing ads.</string>
     <string name="brave_ui_turn_on_ads">Turn on Ads</string>
     <string name="brave_ui_brave_ads_launch_title">Brave Ads has arrived!</string>
-    <string name="brave_ui_verified_publisher_notification">Creator <ph name="PUBLISHER_NAME">%1$s<ex>brave.com</ex></ph> recently verified</string>
+    <string name="brave_ui_verified_publisher_notification">Creator <ph name="PUBLISHER_NAME">%1$s</ph> recently verified</string>
     <string name="brave_ui_pending_contribution_title">Pending Contribution</string>
 </resources>
