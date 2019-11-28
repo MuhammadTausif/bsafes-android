@@ -32,6 +32,7 @@ import org.chromium.chrome.browser.BraveRewardsHelper;
 import org.chromium.chrome.browser.BraveRewardsNativeWorker;
 import org.chromium.chrome.browser.BraveRewardsObserver;
 import org.chromium.chrome.browser.ChromeTabbedActivity;
+import org.chromium.components.url_formatter.UrlFormatter;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
 import org.chromium.chrome.browser.tab.Tab;
@@ -98,7 +99,7 @@ public class BraveRewardsSiteBannerActivity extends Activity implements BraveRew
         radio_tip_amount[1].setTextOff(String.format(getResources().getString(R.string.five_tip_option),isAnonWallet ? getResources().getString(R.string.brave_ui_bap_text) : getResources().getString(R.string.brave_ui_bat_text)));
         radio_tip_amount[1].setTextOn(String.format(getResources().getString(R.string.five_tip_option),isAnonWallet ? getResources().getString(R.string.brave_ui_bap_text) : getResources().getString(R.string.brave_ui_bat_text)));
         radio_tip_amount[1].setChecked(true);
-        
+
         radio_tip_amount[2] = findViewById(R.id.ten_bat_option);
         radio_tip_amount[2].setTextOff(String.format(getResources().getString(R.string.ten_tip_option),isAnonWallet ? getResources().getString(R.string.brave_ui_bap_text) : getResources().getString(R.string.brave_ui_bat_text)));
         radio_tip_amount[2].setTextOn(String.format(getResources().getString(R.string.ten_tip_option),isAnonWallet ? getResources().getString(R.string.brave_ui_bap_text) : getResources().getString(R.string.brave_ui_bat_text)));
@@ -134,6 +135,8 @@ public class BraveRewardsSiteBannerActivity extends Activity implements BraveRew
         mBraveRewardsNativeWorker.AddObserver(this);
 
         String publisherName = mBraveRewardsNativeWorker.GetPublisherName(currentTabId_);
+        String fixedUrl = UrlFormatter.fixupUrl(publisherName);
+        publisherName = UrlFormatter.formatUrlForSecurityDisplayOmitScheme(fixedUrl);
         TextView publisher = (TextView)findViewById(R.id.publisher_name);
         publisher.setText(publisherName);
 
