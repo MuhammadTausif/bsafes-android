@@ -415,8 +415,9 @@ public class ToolbarTablet extends ToolbarLayout
             if (null == mRewardsPopup) {
                 mRewardsPopup = new BraveRewardsPanelPopup(v);
                 mRewardsPopup.showLikePopDownMenu();
-                if (mBraveRewardsNotificationsCount.isShown()) {
-                    SharedPreferences sharedPref = ContextUtils.getAppSharedPreferences();
+                SharedPreferences sharedPref = ContextUtils.getAppSharedPreferences();
+                boolean shownBefore = sharedPref.getBoolean(BraveRewardsPanelPopup.PREF_WAS_TOOLBAR_BAT_LOGO_BUTTON_PRESSED, false);
+                if (!shownBefore){
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putBoolean(BraveRewardsPanelPopup.PREF_WAS_TOOLBAR_BAT_LOGO_BUTTON_PRESSED, true);
                     editor.apply();
