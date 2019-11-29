@@ -137,6 +137,8 @@ public class ToolbarTablet extends ToolbarLayout
                 getResources().getDimensionPixelOffset(R.dimen.tablet_toolbar_start_padding);
         mStartPaddingWithoutButtons =
                 getResources().getDimensionPixelOffset(R.dimen.toolbar_edge_padding);
+        SharedPreferences sharedPref = ContextUtils.getAppSharedPreferences();
+        isInitialNotificationPosted = !sharedPref.getBoolean(BraveRewardsPanelPopup.PREF_WAS_TOOLBAR_BAT_LOGO_BUTTON_PRESSED, false);
     }
 
     @Override
@@ -415,10 +417,8 @@ public class ToolbarTablet extends ToolbarLayout
             if (null == mRewardsPopup) {
                 mRewardsPopup = new BraveRewardsPanelPopup(v);
                 mRewardsPopup.showLikePopDownMenu();
-                SharedPreferences sharedPref = ContextUtils.getAppSharedPreferences();
-                boolean shownBefore = sharedPref.getBoolean(BraveRewardsPanelPopup.PREF_WAS_TOOLBAR_BAT_LOGO_BUTTON_PRESSED, false);
-                if (!shownBefore){
-                    SharedPreferences.Editor editor = sharedPref.edit();
+                if (isInitialNotificationPosted){
+                    SharedPreferences.Editor editor = ContextUtils.getAppSharedPreferences().edit();
                     editor.putBoolean(BraveRewardsPanelPopup.PREF_WAS_TOOLBAR_BAT_LOGO_BUTTON_PRESSED, true);
                     editor.apply();
                     mBraveRewardsNotificationsCount.setVisibility(View.INVISIBLE);
