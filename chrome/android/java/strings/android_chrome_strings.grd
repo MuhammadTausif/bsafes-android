@@ -2938,6 +2938,15 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       <message name="IDS_MENU_DOWNLOAD" desc="Tooltip for the button to download the current web page. [CHAR-LIMIT=27]">
         Download
       </message>
+      <message name="IDS_READSHARE_FORWARD" desc="Read Later in Private">
+        Read Later in Private
+      </message>
+      <message name="IDS_FAVICON" desc="favicon">
+        favicon
+      </message>
+      <message name="IDS_MENU_READINGLIST" desc="Menu item for opening the reading list page. [CHAR-LIMIT=27]">
+        Reading List
+      </message>
       <message name="IDS_MENU_PAGE_INFO" desc="Tooltip on Android for the button to view information about the current web page. Info is short for information.  [CHAR-LIMIT=27]">
         Page info
       </message>
