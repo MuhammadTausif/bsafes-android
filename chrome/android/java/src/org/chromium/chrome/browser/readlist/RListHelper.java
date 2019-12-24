@@ -22,21 +22,22 @@ public class RListHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE READLIST (_id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT, description TEXT, created INTEGER)";
+        String sql = "CREATE TABLE READLIST (_id INTEGER PRIMARY KEY AUTOINCREMENT, url TEXT, description TEXT, logo_url TEXT, created LONG)";
         db.execSQL(sql);
 
         //insert sample
     }
 
-    public void insertURLs(String url, SQLiteDatabase db) {
+    public void insertURLs(String url, String title, String logo_url, SQLiteDatabase db) {
         Date dDate = new Date();
-        insertData(url, "", 210, db);
+        insertData(url, title, logo_url, dDate.getTime(), db);
     }
 
-    private void insertData(String url, String descritpion, int created, SQLiteDatabase db) {
+    private void insertData(String url, String descritpion, String logo_url, long created, SQLiteDatabase db) {
         ContentValues values = new ContentValues();
         values.put("url", url);
         values.put("description", descritpion);
+        values.put("logo_url", logo_url);
         values.put("created", created);
         db.insert("READLIST", null, values);
     }

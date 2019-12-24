@@ -18,37 +18,40 @@ import org.chromium.chrome.R;
 
 public class RListActivity extends SnackbarActivity {
 
-    ListView lv_rlist;
+    ArrayList<ReadingListModel> dataModel;
+    ListView ReadingListView;
+    private static ReadingListAdapter adapter;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.readinglist_main);
 
+        ReadingListView = (ListView) findViewById(R.id.lv_rlist);
+
         RListHelper rListHelper = new RListHelper(this);
         SQLiteDatabase db = rListHelper.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT url, created FROM READLIST", new String[]{});
+        Cursor cursor = db.rawQuery("SELECT url, description, logo_url, created FROM READLIST", new String[]{});
 
         if(cursor != null) {
             cursor.moveToFirst();
         }
 
-        ArrayList<String> ar = new ArrayList<String>();
+        dataModel = new ArrayList<>();
 
         do {
             String url = cursor.getString(0);
-            int created = cursor.getInt(1);
+            String title = cursor.getString(1);
+            String logo_url = cursor.getString(2);
 
-            ar.add(url);
+            dataModel.add(new ReadingListModel(url, title, logo_url));
 
-            Toast.makeText(this, url + "" + created, Toast.LENGTH_SHORT).show();
+
         } while (cursor.moveToNext());
 
-        lv_rlist = (ListView) findViewById(R.id.lv_rlist);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, ar);
-        lv_rlist.setAdapter(adapter);
+        adapter = new ReadingListAdapter(dataModel, getApplicationContext());
+        ReadingListView.setAdapter(adapter);
 
     }
 

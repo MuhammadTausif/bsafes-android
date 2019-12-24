@@ -2944,6 +2944,12 @@ To change this setting, <ph name="BEGIN_LINK">&lt;resetlink&gt;</ph>reset sync<p
       <message name="IDS_FAVICON" desc="favicon">
         favicon
       </message>
+      <message name="IDS_READLIST_TITLE" desc="title">
+        title
+      </message>
+      <message name="IDS_READLIST_URL" desc="url">
+        url
+      </message>
       <message name="IDS_MENU_READINGLIST" desc="Menu item for opening the reading list page. [CHAR-LIMIT=27]">
         Reading List
       </message>

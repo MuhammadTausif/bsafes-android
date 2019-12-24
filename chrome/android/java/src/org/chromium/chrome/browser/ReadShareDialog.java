@@ -144,17 +144,12 @@ public class ReadShareDialog extends Activity {
         if(url != null) {
             RListHelper rListHelper = new RListHelper(getBaseContext());
             SQLiteDatabase db = rListHelper.getReadableDatabase();
-            rListHelper.insertURLs(url, db);
+            rListHelper.insertURLs(url, title, logo_url, db);
+
+            Toast.makeText(this, "Saved to Reading List", Toast.LENGTH_SHORT).show();
         }
 
-        String activityToStart = "org.chromium.chrome.browser.document.ChromeLauncherActivity";
-        try {
-            Class<?> c = Class.forName(activityToStart);
-            Intent i = new Intent(getBaseContext(), c);
-            startActivity(i);
-        } catch (ClassNotFoundException ignored) {
-        }
-
+        finish();
     }
 
     public boolean isValidURL(String urlStr) {

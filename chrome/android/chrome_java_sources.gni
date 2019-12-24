@@ -1413,6 +1413,8 @@ chrome_java_sources = [
   "java/src/org/chromium/chrome/browser/readlist/RListActivity.java",
   "java/src/org/chromium/chrome/browser/readlist/RListManagerUtils.java",
   "java/src/org/chromium/chrome/browser/readlist/RListHelper.java",
+  "java/src/org/chromium/chrome/browser/readlist/ReadingListAdapter.java",
+  "java/src/org/chromium/chrome/browser/readlist/ReadingListModel.java",
   "java/src/org/chromium/chrome/browser/rlz/RevenueStats.java",
   "java/src/org/chromium/chrome/browser/rlz/RlzPingHandler.java",
   "java/src/org/chromium/chrome/browser/safe_browsing/FileTypePolicies.java",
