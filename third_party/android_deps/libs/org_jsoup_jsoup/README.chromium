@@ -1,0 +1,13 @@
+Name: org.jsoup
+Short Name: org.jsoup
+URL: http://code.google.com/p/atinject/
+Version: 1
+License: Apache Version 2.0
+License File: NOT_SHIPPED
+Security Critical: no
+
+Description:
+The org.jsoup API
+
+Local Modifications:
+No modifications.

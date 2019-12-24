@@ -113,6 +113,8 @@ dependencies {
 
     compile "com.android.support:multidex:1.0.0"
 
+    compile 'org.jsoup:jsoup:1.12.1'
+
     buildCompile "javax.inject:javax.inject:1"
 
     // Dagger
