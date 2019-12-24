@@ -10,6 +10,8 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -22,6 +24,8 @@ import org.chromium.chrome.browser.readlist.RListHelper;
 //import org.jsoup.Jsoup;
 //import org.jsoup.nodes.Document;
 //import org.jsoup.nodes.Element;
+
+import static android.view.View.GONE;
 
 public class ReadShareDialog extends Activity {
 
@@ -146,10 +150,31 @@ public class ReadShareDialog extends Activity {
             SQLiteDatabase db = rListHelper.getReadableDatabase();
             rListHelper.insertURLs(url, title, logo_url, db);
 
-            Toast.makeText(this, "Saved to Reading List", Toast.LENGTH_SHORT).show();
+            Snackbar bar = Snackbar.make(findViewById(android.R.id.content), "Saved to Reading List", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String activityToStart = "org.chromium.chrome.browser.document.ChromeLauncherActivity";
+                    try {
+                        Class<?> c = Class.forName(activityToStart);
+                        Intent i = new Intent(getBaseContext(), c);
+                        startActivity(i);
+                    } catch (ClassNotFoundException ignored) {
+                    }
+                }
+            }).setDuration(2000);
+            bar.show();
+
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            };
+            Handler handler = new android.os.Handler();
+            handler.postDelayed(runnable, 2000);
         }
 
-        finish();
+
     }
 
     public boolean isValidURL(String urlStr) {
