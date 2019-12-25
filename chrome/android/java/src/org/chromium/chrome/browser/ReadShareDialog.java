@@ -148,7 +148,7 @@ public class ReadShareDialog extends Activity {
             SQLiteDatabase db = rListHelper.getReadableDatabase();
             rListHelper.insertURLs(url, title, logo_url, db);
 
-            /*
+            
             findViewById(R.id.readshare_layout).setVisibility(GONE);
 
             Snackbar bar = Snackbar.make(findViewById(android.R.id.content), "Saved to Reading List", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
@@ -173,7 +173,7 @@ public class ReadShareDialog extends Activity {
             };
             Handler handler = new android.os.Handler();
             handler.postDelayed(runnable, 2000);
-            */
+            
             finish();
             Toast.makeText(this, "Saved to Reading List", Toast.LENGTH_LONG).show();
         }
