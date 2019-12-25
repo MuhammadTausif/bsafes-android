@@ -1,6 +1,7 @@
 package org.chromium.chrome.browser.readlist;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 //import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+
+import java.io.InputStream;
+
+import java.net.URL;
 
 import java.util.ArrayList;
 
@@ -46,11 +53,41 @@ public class ReadingListAdapter extends ArrayAdapter<ReadingListModel> implement
 
         }
 
-        ImageView iv = (ImageView) v.findViewById(R.id.readlist_item_logo);
+        final ImageView iv = (ImageView) v.findViewById(R.id.readlist_item_logo);
+
         TextView tv1 = (TextView) v.findViewById(R.id.readlist_item_title);
+
         TextView tv2 = (TextView) v.findViewById(R.id.readlist_item_url);
 
+        final int pos = position;
+
+
+
         //Picasso.get().load(getItem(position).getLogoURL()).into(iv);
+
+
+
+        new Thread(new Runnable() {
+
+            @Override
+
+            public void run() {
+
+                try {
+
+                    InputStream is = (InputStream)new URL(getItem(pos).getLogoURL()).getContent();
+
+                    iv.setImageBitmap(BitmapFactory.decodeStream(is));
+
+                }catch (IOException e) {
+
+                    e.printStackTrace();
+
+                }
+
+            }
+
+        }).start();
 
         tv1.setText(getItem(position).getTitle());
         tv2.setText(getItem(position).getUrl());
