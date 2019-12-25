@@ -2927,6 +2927,17 @@ deps = {
       'dep_type': 'cipd',
   },
 
+  'src/third_party/android_deps/libs/com_squareup_picasso_picasso': {
+      'packages': [
+          {
+              'package': 'chromium/third_party/android_deps/libs/com_squareup_picasso_picasso',
+              'version': 'version:2.71828-cr0',
+          },
+      ],
+      'condition': 'checkout_android',
+      'dep_type': 'cipd',
+  },
+
   'src/third_party/android_deps/libs/net_sf_kxml_kxml2': {
       'packages': [
           {

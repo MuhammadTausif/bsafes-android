@@ -396,6 +396,7 @@ android_library("chrome_java") {
     "//third_party/android_deps:com_google_protobuf_protobuf_lite_java",
     "//third_party/android_deps:javax_inject_javax_inject_java",
     "//third_party/android_deps:org_jsoup_jsoup_java",
+    "//third_party/android_deps:com_squareup_picasso_picasso_java",
     "//third_party/android_media:android_media_java",
     "//third_party/android_sdk:android_gcm_java",
     "//third_party/android_sdk/androidx_browser:androidx_browser_java",
