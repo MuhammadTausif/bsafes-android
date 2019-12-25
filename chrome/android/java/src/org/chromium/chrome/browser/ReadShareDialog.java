@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
+//import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -126,6 +127,8 @@ public class ReadShareDialog extends Activity {
             ReadContent.setText(title);
             ReadContent.append("\n");
             ReadContent.append(url);
+
+            //Picasso.get().load(lg_url).into(ReadLogo);
 
             new Thread(new Runnable() {
                 String abc = "";

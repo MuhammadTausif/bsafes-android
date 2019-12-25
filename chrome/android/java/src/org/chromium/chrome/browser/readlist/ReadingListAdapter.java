@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class ReadingListAdapter extends ArrayAdapter<ReadingListModel> implements View.OnClickListener {
@@ -47,6 +49,8 @@ public class ReadingListAdapter extends ArrayAdapter<ReadingListModel> implement
         ImageView iv = (ImageView) v.findViewById(R.id.readlist_item_logo);
         TextView tv1 = (TextView) v.findViewById(R.id.readlist_item_title);
         TextView tv2 = (TextView) v.findViewById(R.id.readlist_item_url);
+
+        //Picasso.get().load(getItem(position).getLogoURL()).into(iv);
 
         tv1.setText(getItem(position).getTitle());
         tv2.setText(getItem(position).getUrl());
