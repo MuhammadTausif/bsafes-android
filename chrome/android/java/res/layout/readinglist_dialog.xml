@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/readshare_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -13,7 +14,7 @@
         android:textSize="10pt"
         android:padding="10dp"
         android:textColor="#FF0E73CF"
-        android:text="@string/close"/>
+        android:text="@string/close" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -39,10 +40,10 @@
 
 
     <LinearLayout
-
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp">
+
         <TextView
             android:id="@+id/tv_readshare_forward"
             android:layout_width="0dp"
@@ -52,18 +53,10 @@
             android:padding="10dp"
             android:textSize="10pt"
             android:textColor="#FF2225A0"
+            android:drawableEnd="@drawable/forward_icon"
             android:text="@string/readshare_forward"
             />
 
-
-        <ImageView
-            android:id="@+id/btn_readshare_forward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/forward_icon"
-            android:contentDescription="@string/readshare_forward"
-            />
     </LinearLayout>
 
 </LinearLayout>

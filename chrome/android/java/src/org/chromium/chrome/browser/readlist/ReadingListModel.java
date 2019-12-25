@@ -1,4 +1,4 @@
-package com.pro.myapplication;
+package org.chromium.chrome.browser.readlist;
 
 public class ReadingListModel {
     String title, url, logo_url;

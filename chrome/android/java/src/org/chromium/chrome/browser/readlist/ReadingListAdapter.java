@@ -1,4 +1,4 @@
-package com.pro.myapplication;
+package org.chromium.chrome.browser.readlist;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 //import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import org.chromium.chrome.R;
 
 public class ReadingListAdapter extends ArrayAdapter<ReadingListModel> implements View.OnClickListener {
     private ArrayList<ReadingListModel> dataSet;
@@ -28,8 +30,6 @@ public class ReadingListAdapter extends ArrayAdapter<ReadingListModel> implement
         int position = (Integer) v.getTag();
         Object obj = getItem(position);
         ReadingListModel dataModel = (ReadingListModel)obj;
-
-
     }
 
     private int lastPosition = -1;

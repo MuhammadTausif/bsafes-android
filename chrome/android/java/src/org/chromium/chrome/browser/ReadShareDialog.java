@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+//import com.google.android.material.snackbar.Snackbar;
+import android.support.design.widget.Snackbar;
 //import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -21,6 +23,8 @@ import java.util.Scanner;
 
 import org.chromium.chrome.R;
 import org.chromium.chrome.browser.readlist.RListHelper;
+import org.chromium.chrome.browser.readlist.ReadingListAdapter;
+import org.chromium.chrome.browser.readlist.ReadingListModel;
 
 //import org.jsoup.Jsoup;
 //import org.jsoup.nodes.Document;
@@ -101,15 +105,6 @@ public class ReadShareDialog extends Activity {
 
         displayText(sharedText, value[0], value[1]);
 
-        Forward = (ImageView)findViewById(R.id.btn_readshare_forward);
-
-        Forward.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                handleSendText(sharedText, value[0], value[1]);
-            }
-        });
-
         ReadForward = (TextView)findViewById(R.id.tv_readshare_forward);
         ReadForward.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,6 +148,9 @@ public class ReadShareDialog extends Activity {
             SQLiteDatabase db = rListHelper.getReadableDatabase();
             rListHelper.insertURLs(url, title, logo_url, db);
 
+            /*
+            findViewById(R.id.readshare_layout).setVisibility(GONE);
+
             Snackbar bar = Snackbar.make(findViewById(android.R.id.content), "Saved to Reading List", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -175,6 +173,9 @@ public class ReadShareDialog extends Activity {
             };
             Handler handler = new android.os.Handler();
             handler.postDelayed(runnable, 2000);
+            */
+            finish();
+            Toast.makeText(this, "Saved to Reading List", Toast.LENGTH_LONG).show();
         }
 
 
